@@ -1,5 +1,5 @@
 # the-dream-boys
-Client Project for Bo, Nick, Pete, and Michael
+Client Project for [Bo](https://github.com/boguth), [Nick](https://github.com/nsiefken), [Pete](https://github.com/pmacaluso3), and [Michael](https://github.com/michaelkunc)
 - A site to help track users’ libraries of board games.
 
 ## User Stories
