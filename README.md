@@ -49,8 +49,8 @@ Client Project for Bo, Nick, Pete, and Michael
 ##Requirements
 - Rails 4.2.1 or higher.
 - Postgres server.
+
 To add:
-* Ruby version
 
 * System dependencies
 
