@@ -43,7 +43,7 @@ Client Project for [Bo](https://github.com/boguth), [Nick](https://github.com/ns
 9. Attach screenshots to view commits.
 10. No lunch work.
 11. Five to six break.
-12. Day ends at 21:00.
+12. Day ends at 20:30.
 13. Naming conventions are sacred.
 
 ##Requirements
