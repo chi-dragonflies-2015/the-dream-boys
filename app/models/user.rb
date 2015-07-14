@@ -22,5 +22,13 @@ class User < ActiveRecord::Base
     output
   end
 
+  def image
+    if self.image_url
+      self.image_url
+    else
+      "default pic url"
+    end
+  end
+
 
 end
