@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "home#index"
+  get 'games/:game_id/vote/:vote_value' => 'vote#create_vote_for_game'
+  get 'comments/:comment_id/vote/:vote_value' => 'vote#create_vote_for_comment'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

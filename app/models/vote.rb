@@ -4,6 +4,7 @@ class Vote < ActiveRecord::Base
 
   validates :value, {presence: true}
   validates :voter_id, {presence: true}
+  validate :value_has_only_two_possibilities
 
   def self.allowed_to_vote(current_user, current_votable)
     !current_votable.voters.include?(current_user)
@@ -13,5 +14,13 @@ class Vote < ActiveRecord::Base
     sum = 0
     item.votes.each {|vote| sum += vote.value}
     sum
+  end
+
+  private
+
+  def value_has_only_two_possibilities
+    if self.value != 1 || self.value != -1
+      errors.add(:value, "can't be anything but 1 or -1")
+    end
   end
 end
