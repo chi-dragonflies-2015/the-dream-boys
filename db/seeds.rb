@@ -34,5 +34,7 @@ user_a.friendees << user_b
 user_b.friendees << user_c
 user_c.friendees << user_d
 
-
+user_b.games << bs
+user_b.games << mono
+user_b.games << risk
 
