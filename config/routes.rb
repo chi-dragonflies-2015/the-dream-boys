@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root "games#index"
 
   resources :games
-  root "home#index"
 
 
   resources :games do

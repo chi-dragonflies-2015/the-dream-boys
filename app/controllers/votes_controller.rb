@@ -29,7 +29,7 @@ class VotesController < ApplicationController
           content_type :json
           {votes: Vote.total(this_comment)}.to_json
         else
-          render '/'
+          render '/' #not final
         end
       end
     end
