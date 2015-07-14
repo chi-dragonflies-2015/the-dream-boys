@@ -20,16 +20,22 @@
         1,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
+        2,
         null,
         null,
         null,
         null
+      ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/models/friendship.rb": [
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1436890187
+    "timestamp": 1436898598
   }
 }

@@ -38,9 +38,29 @@ describe User do
   end
 
   describe "friends associations" do
-    user1 = User.create(username: "user1", first_name: "first", last_name: "last", bio: "bio", password: "password")
-    user1 = User.create(username: "user1", first_name: "first", last_name: "last", bio: "bio", password: "password")
-    user1 = User.create(username: "user1", first_name: "first", last_name: "last", bio: "bio", password: "password")
+
+    before (:each) do
+      @user1 = User.create(username: "user1", first_name: "first", last_name: "last", bio: "bio", password: "password")
+      @user2 = User.create(username: "user2", first_name: "first", last_name: "last", bio: "bio", password: "password")
+      @user3 = User.create(username: "user3", first_name: "first", last_name: "last", bio: "bio", password: "password")
+    end
+
+    it "knows its frienders" do
+      @user1.frienders << @user2
+      expect(@user1.frienders.first.username).to eq("user2")
+    end
+
+    it "knows its friendees" do
+      @user1.friendees << @user2
+      expect(@user1.friendees.first.username).to eq("user2")
+    end
+
+    it "knows its friends from both frienders and friendees" do
+      @user2.friendees << @user3
+      @user2.frienders << @user1
+      expect(@user2.friends.map{|f| f.username}).to eq(["user1", "user3"])
+    end
+
   end
 
 end
