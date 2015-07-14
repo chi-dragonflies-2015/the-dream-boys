@@ -28,11 +28,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'coveralls', require: false
 group :development, :test do
+  gem 'coveralls', require: false
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  # gem 'simplecov', :require => false, :group => :test
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'rspec-rails', '~> 3.0'
@@ -40,4 +41,10 @@ group :development, :test do
   gem 'spring'
 end
 
+# group :test do
+#   gem 'faker'
+#   gem 'capybara'
+#   gem 'guard-rspec'
+#   gem 'launchy'
+# end
 
