@@ -1,7 +1,48 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/apprentice/Desktop/the-dream-boys/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/models/game.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
     },
-    "timestamp": 1436887722
+    "timestamp": 1436890454
   }
 }
