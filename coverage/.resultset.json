@@ -33,6 +33,11 @@
         null,
         null,
         1,
+        2,
+        2,
+        1,
+        null,
+        1,
         null,
         null,
         null,
@@ -48,6 +53,11 @@
         null,
         1,
         null,
+        null,
+        null,
+        1,
+        1,
+        2,
         null,
         null,
         null,
@@ -59,8 +69,18 @@
         null,
         1,
         null
+      ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/models/comment.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1436916469
+    "timestamp": 1436917909
   }
 }
