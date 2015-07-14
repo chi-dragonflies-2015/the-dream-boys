@@ -32,10 +32,10 @@ describe User do
       expect(@user.save).to eq(false)
     end
 
-    it "is invalid without a bio" do
-      @user.bio = nil
-      expect(@user.save).to eq(false)
-    end
+    # it "is invalid without a bio" do
+    #   @user.bio = nil
+    #   expect(@user.save).to eq(false)
+    # end
 
     it "is invalid without a password" do
       @user.password = nil
