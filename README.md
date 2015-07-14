@@ -72,4 +72,8 @@ To add:
 ##Resources
 [Example of good readme](https://github.com/devdame/DBC-final-project)
 
+##CI and coverage tests
+View the log of CI reports [here](https://travis-ci.org/chi-dragonflies-2015/the-dream-boys).
+The coveralls URL near the bottom of the report leads to coverage reports.
+
 ##View Images
