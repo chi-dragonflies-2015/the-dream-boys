@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150714190940) do
   end
 
   create_table "ownerships", force: :cascade do |t|
-    t.integer  "owners_id"
-    t.integer  "games_id"
+    t.integer  "owner_id"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150714190940) do
     t.string   "last_name"
     t.string   "password_digest"
     t.string   "bio"
+    t.string   "image_url"
     t.boolean  "admin",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
