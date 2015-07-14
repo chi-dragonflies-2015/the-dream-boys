@@ -9,19 +9,23 @@
         1,
         null
       ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/helpers/users_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/helpers/users_controller_helper.rb": [
+        1,
+        null
+      ],
       "/Users/apprentice/Desktop/the-dream-boys/app/controllers/comments_controller.rb": [
         1,
         null,
         1,
-        null,
-        null,
-        null,
         1,
-        null,
-        null,
-        null,
-        1,
-        null,
         null,
         null,
         1,
@@ -31,18 +35,18 @@
         1,
         null,
         null,
+        null,
+        1,
         1,
         null,
         null,
         1,
         null,
         null,
+        1,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
+        1,
         null,
         null,
         null,
@@ -57,6 +61,6 @@
         null
       ]
     },
-    "timestamp": 1436905445
+    "timestamp": 1436916469
   }
 }
