@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
   def index
-
+    @game = Game.find_by_id(params[:game_id])
+    redirect_to @game
   end
 
   def new
