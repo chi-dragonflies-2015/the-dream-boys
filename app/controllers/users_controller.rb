@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
+  def new
+    render "users/create"
+  end
+
   def create
     this_user = User.new(user_params)
+    p this_user.inspect
     if this_user.save
-      redirect '/'
+      redirect_to "/"
     else
-      @errors =
+      @errors = this_user.errors
+      render "users/create"
     end
-
   end
 
 

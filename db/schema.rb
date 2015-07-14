@@ -11,23 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714144051) do
+ActiveRecord::Schema.define(version: 20150714184004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "friender_id"
-    t.integer "friendee_id"
+    t.integer  "friender_id"
+    t.integer  "friendee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ownerships", force: :cascade do |t|
+    t.integer  "owners_id"
+    t.integer  "games_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "password_digest"
-    t.string  "bio"
-    t.boolean "admin",           default: false
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
+    t.string   "bio"
+    t.boolean  "admin",           default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
