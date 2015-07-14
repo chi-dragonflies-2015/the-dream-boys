@@ -5,8 +5,11 @@ env:
   - DB=postgresql
 script:
   - bundle exec rake spec
+
+bundler_args: --binstubs=./bundler_stubs
+
 before_script:
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
-bundler_args: --binstubs=./bundler_stubs
+  - psql -c 'create database the_dream_boys_app_test;' -U postgres
