@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
+
   has_many :comments
   has_many :games_tags
   has_many :tags, through: :games_tags
@@ -6,6 +7,8 @@ class Game < ActiveRecord::Base
   has_many :owners, through: :ownerships, source: :owner_id
   has_many :votes, as: :voteable
   has_many :votes, through: :votes, source: :user
+
+
   validates :title, {presence: true, uniqueness: true}
   validates :description, {presence: true}
   validates :min_age, {presence: true}
