@@ -1,0 +1,14 @@
+<% if @errors %>
+There were errors in creating your account.
+<%= @errors.inspect %>
+
+<% end %>
+Fill out the fields below.
+<%= form_for :user, url: users_path, method: "post" do |f| %>
+  <%= f.text_field :username, placeholder: "Username"%>
+  <%= f.text_field :first_name, placeholder: "First Name"%>
+  <%= f.text_field :last_name, placeholder: "Last Name"%>
+  <%= f.password_field :password, placeholder: "Password"%>
+  <%= f.submit "Create an account!" %>
+<% end %>
+
