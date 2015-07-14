@@ -8,8 +8,8 @@ script:
 
 bundler_args: --binstubs=./bundler_stubs
 
-before_script:
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
-  - psql -c 'create database the_dream_boys_app_test;' -U postgres
+# before_script:
+#   - bundle exec rake db:create RAILS_ENV=test
+#   - bundle exec rake db:migrate
+#   - bundle exec rake db:test:prepare
+#   - psql -c 'create database the_dream_boys_app_test;' -U postgres
