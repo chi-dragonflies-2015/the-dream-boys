@@ -43,7 +43,7 @@ Client Project for [Bo](https://github.com/boguth), [Nick](https://github.com/ns
 9. Attach screenshots to view commits.
 10. No lunch work.
 11. Five to six break.
-12. Day ends at 21:00.
+12. Day ends at 20:30.
 13. Naming conventions are sacred.
 
 ##Requirements
@@ -71,5 +71,9 @@ To add:
 
 ##Resources
 [Example of good readme](https://github.com/devdame/DBC-final-project)
+
+##CI and coverage tests
+View the log of CI reports [here](https://travis-ci.org/chi-dragonflies-2015/the-dream-boys).
+The coveralls URL near the bottom of the report leads to coverage reports.
 
 ##View Images
