@@ -2,5 +2,8 @@
   <% @games.each do |game| %>
 
     <li><%= link_to game.title, game_path(game) %> : <%= game.description %>  </li>
+    <button class="button"><%= link_to "Add to my library!" %></button>
 </ul>
+
+
   <% end %>
