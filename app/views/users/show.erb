@@ -1,0 +1,27 @@
+<p>
+  <%= @user.username %>
+</p>
+<p>
+  <img src="<%= @user.image %>">
+</p>
+<p>
+  "Here's a little bit about me"
+  <br>bio bio bio bio
+</p>
+<p>
+  "Here are some of my games"
+  <% @user.games.each do |game| %>
+    <p>
+      <img src="<%= game.image_url %>"><%= link_to game.title, game_path(game) %>
+    </p>
+  <% end %>
+</p>
+<p>
+  "Here are some of my friends"
+  <% @user.friends.each do |friend| %>
+    <p>
+      <img src="<%= friend.image %>"><%= link_to friend.username, user_path(friend) %>
+    </p>
+  <% end %>
+</p>
+
