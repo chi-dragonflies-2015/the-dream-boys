@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    render "users/create"
   end
 
   def create
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to "/"
     else
       @errors = this_user.errors
-      render "users/create"
+      render "users/new"
     end
   end
 
