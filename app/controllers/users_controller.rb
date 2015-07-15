@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   def new
   end
 
+  def search
+    puts "*********** #{params[:search_term]}"
+    @users = search_users(params[:search_term])
+    render "users/index"
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

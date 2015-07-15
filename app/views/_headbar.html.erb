@@ -3,6 +3,20 @@
   <% if current_user %>
     Welcome, <%= current_user.username %>! <%= link_to "Your profile", user_path(current_user) %>
     <%= link_to "Logout", session_path(current_user), method: "DELETE" %>
+    <%# form_for %>
+
+
+
+    <form action="/users/<%= current_user.id %>/games/search" method="post">
+      <%#= csrf_meta_tags %>
+      <input type="hidden" name="authenticity_token" value="">
+      <input type="text" placeholder="Search for a game" name="search_term">
+    </form>
+    <form action="/users/search" method="post">
+      <input type="hidden" name="authenticity_token" value="">
+      <input type="text" placeholder="Search for a user" name="search_term">
+    </form>
+
     Maybe there'll be a games searchbar here, and a users searchbar here
   <% else %>
     <!-- let's style these links as buttons -->
