@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
   def index
-    if session[:user_id]
-      @current_user = User.find_by(id: session[:user_id])
-      puts "***** #{@current_user.inspect}"
+    if current_user
       @users = User.all.reject{|user|user.username == @current_user.username}
-      puts "***** #{@users.inspect}"
     else
       @users = User.all
     end

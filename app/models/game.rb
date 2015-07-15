@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
   has_many :tags, through: :games_tags
   has_many :ownerships
   has_many :owners, through: :ownerships, source: :owner
-  has_many :votes, as: :voteable
+  has_many :votes, as: :votable
   has_many :voters, through: :votes, source: :user
 
 
@@ -29,14 +29,18 @@ class Game < ActiveRecord::Base
   private
 
   def min_player_less_than_max
-    if self.min_players > self.max_players
+    if self.min_players
+      if self.min_players > self.max_players
       errors.add(:min_players, "should be less than max players.")
+      end
     end
   end
 
   def min_time_less_than_max
-    if self.min_time > self.max_time
-      errors.add(:min_time, "should be less than max time.")
+    if self.min_time
+      if self.min_time > self.max_time
+        errors.add(:min_time, "should be less than max time.")
+      end
     end
   end
 
