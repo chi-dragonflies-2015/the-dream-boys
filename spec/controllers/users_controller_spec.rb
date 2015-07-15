@@ -41,6 +41,17 @@ RSpec.describe UsersController, :type => :controller do
   end
 
   describe "GET index" do
-    #need a bunch of tests
+    it "grabs the current user if someone is logged in" do
+      session[:user_id] = @user.id
+      get :index
+      expect(response.status).to eq(200)
+      expect(assigns[:current_user]).not_to eq(nil)
+    end
+
+    it "shows all users if no one is logged in" do
+      session[:user_id] = nil
+      expect(response.status).to eq(200)
+      expect(@current_user).to eq(nil)
+    end
   end
 end
