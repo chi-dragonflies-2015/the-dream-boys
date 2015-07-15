@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
-    @user = User.find(session[:user_id])
+    @user = User.find_by(id: session[:user_id])
     @comments = Comment.all
   end
 
