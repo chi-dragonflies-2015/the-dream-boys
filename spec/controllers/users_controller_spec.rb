@@ -39,4 +39,8 @@ RSpec.describe UsersController, :type => :controller do
       expect(response.status).to eq(200)
     end
   end
+
+  describe "GET index" do
+    #need a bunch of tests
+  end
 end
