@@ -8,6 +8,9 @@
   "Here's a little bit about me"
   <br>bio bio bio bio
 </p>
+  <% if current_user.id != @user.id %>
+    <%= button_to "Add to my friends", user_add_friend_path({user_id: @user.id}) %>
+  <% end %>
 <p>
   "Here are some of my games"
   <% @user.games.each do |game| %>
@@ -22,9 +25,10 @@
     <p>
       <img src="<%= friend.image %>"><%= link_to friend.username, user_path(friend) %>
     </p>
-    <p><%= friend.username %> </p>
-    <%= button_to "Add to my friends", user_add_friend_path({user_id: @user.id}) %>
-     <%= button_to "Remove from my friends", user_remove_friend_path({user_id: @user.id}) %>
+    <% if current_user.id == @user.id %>
+      <p><%= friend.username %> </p>
+       <%= button_to "Remove from my friends", user_remove_friend_path({user_id: @user.id}) %>
+    <% end %>
 
   <% end %>
 
