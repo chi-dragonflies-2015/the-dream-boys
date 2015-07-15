@@ -16,6 +16,11 @@ class UsersController < ApplicationController
   end
 
   def add_to_friends
+    @current_user = User.find_by(id: session[:user_id])
+    @friend = User.find(params[:friend_id])
+    @current_user.friendees << @friend
+    redirect_to @current_user
+
   end
 
   def remove_from_friends
