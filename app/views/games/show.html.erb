@@ -1,26 +1,28 @@
-<div class = "game_arrows">
-  <a href = "/games/<%=@game.id%>/vote/1">
-    <div class='arrow-up'>
-    </div>
-  </a>
+<div>
+  <div class = "game_arrows">
+    <a href = "/games/<%=@game.id%>/vote/1">
+      <div class='arrow-up'>
+      </div>
+    </a>
 
-  <div class="vote_count">
-    <p id = "vote_for_games"><%=Vote.total(@game) %></p>
+    <div class="vote_count">
+      <p id = "vote_for_games"><%=Vote.total(@game) %></p>
+    </div>
+
+    <a href = "/games/<%=@game.id%>/vote/-1">
+      <div class='arrow-down'>
+      </div>
+    </a>
   </div>
 
-  <a href = "/games/<%=@game.id%>/vote/-1">
-    <div class='arrow-down'>
-    </div>
-  </a>
+  <img src= <%=@game.image_url %> >
+  <p><%= @game.title %></p>
+  <p><%= @game.description %></p>
+  <p>players: <%= @game.min_players %> to <%=@game.max_players %></p>
+  <p>minimum age: <%= @game.min_age %></p>
+  <p>round length: <%= @game.min_time %> to <%=@game.max_time %> minutes</p>
+
+  <% @comments = @game.comments.all %>
+  <%= render "comments/comments", collection: @comments  %>
+
 </div>
-
-<img src= <%=@game.image_url %> >
-<p><%= @game.title %></p>
-<p><%= @game.description %></p>
-<p>players: <%= @game.min_players %> to <%=@game.max_players %></p>
-<p>minimum age: <%= @game.min_age %></p>
-<p>round length: <%= @game.min_time %> to <%=@game.max_time %> minutes</p>
-
-<% @comments = @game.comments.all %>
-<%= render "comments/comments", collection: @comments  %>
-

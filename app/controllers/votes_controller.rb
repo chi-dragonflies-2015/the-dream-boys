@@ -14,10 +14,14 @@ class VotesController < ApplicationController
             # content_type :json
             # {votes: Vote.total(this_game)}.to_json
           else
-            format.html{render '/'}
+            format.html{ redirect_to '/' }
           end
         end
+      else
+        head 200
       end
+    else
+      head 200
     end
   end
 
@@ -29,15 +33,19 @@ class VotesController < ApplicationController
         this_vote = Vote.new(value: params[:vote_value], voter_id: this_user.id)
         respond_to do |format|
           if this_vote.save
-            this_game.votes << this_vote
+            this_comment.votes << this_vote
             format.json { render json: {votes: Vote.total(this_comment)}}
             # content_type :json
             # {votes: Vote.total(this_comment)}.to_json
           else
-            format.html{render '/'}
+            format.html{redirect_to '/'}
           end
         end
+      else
+        head 200
       end
+    else
+      head 200
     end
   end
 end
