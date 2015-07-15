@@ -5,19 +5,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    puts "*** #{@user.games}"
   end
 
   def new
   end
 
   def create
-    this_user = User.new(user_params)
-    p this_user.inspect
-    if this_user.save
+    @user = User.new(user_params)
+    if @user.save
       redirect_to "/"
     else
-      @errors = this_user.errors
+      @errors = @user.errors
       render "users/new"
     end
   end
