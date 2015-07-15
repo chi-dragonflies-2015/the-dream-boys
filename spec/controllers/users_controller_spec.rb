@@ -4,23 +4,27 @@ RSpec.describe UsersController, :type => :controller do
 
   before (:each) do
     User.destroy_all
-    @user = User.new(username: "pmac", first_name: "Pete", last_name: "Mac", password: "password", bio: "whatever")
+    @user = User.create(username: "pmac", first_name: "Pete", last_name: "Mac", password: "password", bio: "whatever")
+  end
+
+  after (:each) do
+    User.destroy_all
   end
 
   describe "GET show" do
     it "finds the correct user" do
-      get :show, id: 1
+      get :show, id: @user.id
       expect(response.status).to eq(200)
     end
   end
 
-  describe "#create" do
+  describe "POST create" do
     it "creates a user and redirects if params are valid" do
-      expect{post :create, user: {username: "pmac",
-                             first_name: "Pete",
-                             last_name: "Mac",
-                             password: "password",
-                             bio: "whatever"}}.to change{User.count}.by(1)
+      expect{post :create, user: {username: "pmac1",
+                             first_name: "Pete1",
+                             last_name: "Mac1",
+                             password: "password1",
+                             bio: "whatever1"}}.to change{User.count}.by(1)
 
       expect(response.status).to eq(302)
     end
