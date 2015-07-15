@@ -1,4 +1,5 @@
-<% @comments.each do |comment| %>
+
+
   <ul>
     <div class = "comment_arrows">
       <a href = "/comments/<%=comment.id%>/vote/1">
@@ -18,5 +19,6 @@
     <li><%= comment.content %></li>
     <li><%= comment.commenter.username %></li>
   </ul>
-<% end %>
+
+
 

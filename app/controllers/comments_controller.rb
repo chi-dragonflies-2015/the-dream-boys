@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+# respond_to :html, :js
 
   def index
     redirect_to "/"
@@ -14,7 +15,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @user = User.find_by(id: session[:user_id])
     @game = Game.find_by(id: params[:game_id])
-    render "comments/_new"
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -22,16 +25,19 @@ class CommentsController < ApplicationController
       redirect_to "/"
       return ### SEE ABOVE
     end
+    @errors = nil
     @comment = Comment.new(comment_params)
     @user = User.find_by(id: session[:user_id])
     @game = Game.find_by(id: params[:game_id])
-
     if @comment.save
-      redirect_to "/"
+      respond_to do |format|
+        format.js
+      end
     else
-      puts "ERRORS"
-      @comment.errors
-      render "comments/new"
+      @errors = @comment.errors
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
