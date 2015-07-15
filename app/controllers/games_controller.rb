@@ -2,7 +2,6 @@ class GamesController < ApplicationController
 
 
   def index
-    session[:user_id] = 1
     @games = Game.all
     @user = User.find(session[:user_id])
     @comments = Comment.all

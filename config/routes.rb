@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   post 'games/:game_id/vote/:vote_value' => 'vote#create_vote_for_game'
   post 'comments/:comment_id/vote/:vote_value' => 'vote#create_vote_for_comment'
 
-
-
   resources :users do
     resources :comments
   end
