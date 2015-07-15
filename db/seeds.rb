@@ -67,7 +67,10 @@ down = Vote.create!(value: -1, voter_id: user_d)
 shooter = Tag.create!(description: "Shootem Up")
 strategy = Tag.create!(description: "Strategic")
 
+
 risk.tags << shooter
 risk.tags << strategy
+mono.tags << strategy
+mono.votes << up
 risk.votes << up
 ten.votes << down

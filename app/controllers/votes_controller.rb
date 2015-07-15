@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+  respond_to :html, :js
+
+
   def create_vote_for_game
     if session[:user_id]
       this_user = User.find_by(id: session[:user_id])
