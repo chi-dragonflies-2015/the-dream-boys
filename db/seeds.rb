@@ -32,7 +32,7 @@ game.comments.create!(content: "Test content6", commenter_id: user.id)
 game.comments.create!(content: "Test content7", commenter_id: user.id)
 game.comments.create!(content: "Test content8", commenter_id: user.id)
 game.comments.create!(content: "Test content9", commenter_id: user.id)
-game.comments.create!(content: "Test content10", commenter_id: user.id)
+ten = game.comments.create!(content: "Test content10", commenter_id: user.id)
 
 mono = Game.create({title: "Monopoly",
                   image_url: "http://placehold.it/200x100",
@@ -61,6 +61,13 @@ user_a.friendees << user_b
 user_b.friendees << user_c
 user_c.friendees << user_d
 
+up = Vote.create!(value: 1, voter_id: user_b)
+down = Vote.create!(value: -1, voter_id: user_d)
 
+shooter = Tag.create!(description: "Shootem Up")
+strategy = Tag.create!(description: "Strategic")
 
-
+risk.tags << shooter
+risk.tags << strategy
+risk.votes << up
+ten.votes << down
