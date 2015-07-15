@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   end
 
   def new
-    session[:user_id] = 1 ##### delete later
     unless session[:user_id]
       redirect_to "/"
       return ### Added this return inresponse to the following AbstractController::DoubleRenderError
