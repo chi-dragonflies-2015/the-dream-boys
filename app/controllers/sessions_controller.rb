@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    puts "********** #{Game.find_by(title: 'Risk').tags.inspect}"
-    puts "*********** #{search_games("shoo").inspect}"
   end
 
   def create

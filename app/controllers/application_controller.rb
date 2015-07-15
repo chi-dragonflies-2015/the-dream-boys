@@ -16,21 +16,11 @@ class ApplicationController < ActionController::Base
     tag_matches = []
     Game.all.each do |game|
       game.tags.each do |tag|
-        puts "$$$$$$$ #{tag.description}"
-        if tag.description =~ Regexp.new(string)
-          tag_matches < game
+        if tag.description.upcase =~ Regexp.new(string.upcase)
+          tag_matches << game
         end
       end
     end
-
-
-
-
-    # Game.all.select do |game|
-    #   game.tags.any? do |tag|
-    #     tag.description =~ Regexp.new(string)
-    #   end
-    # end
     title_matches.concat(tag_matches.uniq)
   end
 

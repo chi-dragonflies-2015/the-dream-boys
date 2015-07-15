@@ -47,7 +47,7 @@ mono = Game.create({title: "Monopoly",
                   min_time: 10000,
                   max_time: 25000} )
 
-risk = Game.create({title: "Risk",
+risk = Game.create({title: "Riskno",
                   image_url: "http://placehold.it/200x100",
                   description: "This one either",
                   min_players: 2,
