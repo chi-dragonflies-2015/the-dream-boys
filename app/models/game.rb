@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
   has_many :tags, through: :games_tags
   has_many :ownerships
   has_many :owners, through: :ownerships, source: :owner
-  has_many :votes, as: :voteable
+  has_many :votes, as: :votable
   has_many :voters, through: :votes, source: :user
 
 
