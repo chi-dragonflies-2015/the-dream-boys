@@ -19,7 +19,8 @@ class Vote < ActiveRecord::Base
   private
 
   def value_has_only_two_possibilities
-    if self.value != 1 || self.value != -1
+    puts "********** #{self.value.class}"
+    if (value != 1) || (value != -1)
       errors.add(:value, "can't be anything but 1 or -1")
     end
   end

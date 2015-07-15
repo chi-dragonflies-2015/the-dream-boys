@@ -8,7 +8,17 @@ class ApplicationController < ActionController::Base
   end
 
   def search_users(string)
-    usernamed = User.where('username LIKE ? OR first_name LIKE ? OR last_name LIKE ?', "%#{string}%", "%#{string}%", "%#{string}%")
+    User.where('UPPER(username) LIKE ? OR UPPER(first_name) LIKE ? OR UPPER(last_name) LIKE ?', "%#{string.upcase}%", "%#{string.upcase}%", "%#{string.upcase}%")
+  end
+
+  def search_games(string)
+    title_matches = Game.where('UPPER(title) LIKE ?', "%#{string.upcase}%")
+    tag_matches = Game.all.select do |game|
+      game.tags.any? do |tag|
+        tag.description =~ string
+      end
+    end
+    title_matches.concat(tag_matches)
   end
 
   helper_method :current_user
