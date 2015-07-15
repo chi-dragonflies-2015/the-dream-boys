@@ -7,5 +7,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
+  def search_users(string)
+    usernamed = User.where('username LIKE ? OR first_name LIKE ? OR last_name LIKE ?', "%#{string}%", "%#{string}%", "%#{string}%")
+  end
+
   helper_method :current_user
 end
