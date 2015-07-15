@@ -51,3 +51,27 @@ describe '#search_games' do
   end
 end
 
+describe '#search_users' do
+  before (:each) do
+    User.destroy_all
+    @user1 = User.create(username: "1", first_name: "one", last_name: "last", bio: "bio", password: "password")
+    @user2 = User.create(username: "2", first_name: "two", last_name: "last", bio: "bio", password: "password")
+    @user3 = User.create(username: "3", first_name: "three", last_name: "last", bio: "bio", password: "password")
+  end
+
+  after (:each) do
+    User.destroy_all
+  end
+
+  it "correctly finds users by username" do
+    expect(ApplicationController.new.search_users("1")).to eq([@user1])
+  end
+
+  it "correctly finds users by first name" do
+    expect(ApplicationController.new.search_users("e")).to eq([@user1, @user3])
+  end
+
+  it "correctly finds users by last name" do
+    expect(ApplicationController.new.search_users("last")).to eq([@user1, @user2, @user3])
+  end
+end
