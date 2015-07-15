@@ -46,6 +46,4 @@ class GamesController < ApplicationController
                                     :max_players, :min_age, :min_time, :ma)
     end
 
-
-
 end
