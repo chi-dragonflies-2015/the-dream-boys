@@ -1,3 +1,19 @@
+<div class = "game_arrows">
+  <a href = "/games/<%=@game.id%>/vote/1">
+    <div class='arrow-up'>
+    </div>
+  </a>
+
+  <div class="vote_count">
+    <p id = "vote_for_games"><%=Vote.total(@game) %></p>
+  </div>
+
+  <a href = "/games/<%=@game.id%>/vote/-1">
+    <div class='arrow-down'>
+    </div>
+  </a>
+</div>
+
 <img src= <%=@game.image_url %> >
 <p><%= @game.title %></p>
 <p><%= @game.description %></p>
