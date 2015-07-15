@@ -19,13 +19,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-<<<<<<< HEAD
   resources :users do
     resources :games, except: :create
   end
 
-=======
->>>>>>> master
   resources :sessions, only: [:new, :create, :destroy]
   resources :friends
 end

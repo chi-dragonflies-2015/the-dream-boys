@@ -1,5 +1,5 @@
 
-game = Game.create!({title: "Rando12",
+game = Game.create!({title: "Rando121",
                   image_url: "http://placehold.it/200x100",
                   description: "The original naval game",
                   min_players: 2,
@@ -62,9 +62,9 @@ user_a.friendees << user_b
 user_b.friendees << user_c
 user_c.friendees << user_d
 
-user_b.games << bs
+user_b.games << game
 user_b.games << mono
 user_b.games << risk
->>>>>>> master
+
 
 

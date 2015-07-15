@@ -1,9 +1,9 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.allgit
-    @user = User.find_by(params[:user_id])
-    @comments = @game.comments.all
+    @games = Game.all
+    @user = User.find(1)
+    # @comments = @games.comments.all
   end
 
   def new
@@ -13,8 +13,8 @@ class GamesController < ApplicationController
   def add_to_library
     @user = User.find(1)
     @game = Game.find_by(params[:id])
-    @user.games << @game
-    redirect_to "/index"
+    Ownership.create(owner_id: @user.id, game_id: @game.id)
+    redirect_to index
   end
 
   def create
