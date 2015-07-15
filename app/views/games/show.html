@@ -10,6 +10,6 @@
 <div id = "create-comment"> </div>
 <div id="comment-list">
 <% @comment = @game.comments.all %>
-<%= render partial: "comments/comment", collection: @comment.order(:timestamps)  %>
+<%= render partial: "comments/comment", collection: @comment.order(:updated_at).reverse_order  %>
 
 </div>
