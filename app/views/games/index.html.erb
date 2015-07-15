@@ -4,8 +4,13 @@
   <% @games.each do |game| %>
 
     <li><%= link_to game.title, game_path(game) %> : <%= game.description %>  </li>
-    <button class="button"><%= link_to "Add to my library!" %></button>
-</ul>
+        <ul>
+            <% game.comments.each do |comment| %>
+              <li><%= comment.content %></li>
+            <% end %>
+
+        </ul>
+    <%= button_to "Add to my library", user_add_game_path({user_id: @user.id, game_id: game.id}), method: "POST" %>
 
 
   <% end %>

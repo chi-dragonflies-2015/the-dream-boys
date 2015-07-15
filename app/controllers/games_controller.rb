@@ -1,12 +1,23 @@
 class GamesController < ApplicationController
 
+
   def index
     # @current_user = User.find_by(id:session[:user_id])
     @games = Game.all
+    @user = User.find_by(id: session[:user_id])
+    @comments = Comment.all
+
   end
 
   def new
     @game = Game.new
+  end
+
+  def add_to_library
+    @user = User.find(session[:user_id])
+    @game = Game.find(params[:game_id])
+    @user.games << @game
+    redirect_to @user
   end
 
   def create
