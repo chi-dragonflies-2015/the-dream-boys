@@ -2,33 +2,26 @@
   <%= @user.username %>
 </p>
 <p>
-  <img src="<%= @user.profile_pic %>">
+  <img src="<%= @user.image %>">
 </p>
 <p>
   "Here's a little bit about me"
-  bio bio bio bio
-  <%= #@user.username %>
+  <br>bio bio bio bio
 </p>
 <p>
   "Here are some of my games"
-  <br>game1
-  <br>game2
-  <br>game3
-  <%= #@user.games.each do |game| %>
-<!--     <p>
-      <img src="<%= #game.image_url %>"><%= link_to game.title, games_path(game) %>
-    </p> -->
-  <% #end %>
+  <% @user.games.each do |game| %>
+    <p>
+      <img src="<%= game.image_url %>"><%= link_to game.title, game_path(game) %>
+    </p>
+  <% end %>
 </p>
 <p>
   "Here are some of my friends"
-  <br>friend1
-  <br>friend2
-  <br>friend3
-  <%= #@user.friends.each do |friend| %>
-<!--     <p>
-      <img src="<%= #friend.image_url %>"><%= link_to friend.title, friends_path(friend) %>
-    </p> -->
-  <% #end %>
+  <% @user.friends.each do |friend| %>
+    <p>
+      <img src="<%= friend.image %>"><%= link_to friend.username, user_path(friend) %>
+    </p>
+  <% end %>
 </p>
 
