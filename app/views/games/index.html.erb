@@ -1,3 +1,5 @@
+<%= render partial: "/headbar" %>
+
 <ul>
   <% @games.each do |game| %>
 
@@ -8,7 +10,8 @@
             <% end %>
 
         </ul>
-    <%= button_to "Add to my library", user_add_game_path({user_id: @user.id, game_id: game.id}), method: "POST" %>
-
+      <% if current_user %>
+        <%= button_to "Add to my library", user_add_game_path({user_id: @user.id, game_id: game.id}), method: "POST" %>
+      <% end %>
 
   <% end %>
