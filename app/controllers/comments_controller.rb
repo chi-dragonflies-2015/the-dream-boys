@@ -5,14 +5,28 @@ class CommentsController < ApplicationController
   end
 
   def new
-
+    unless session[:user_id]
+      puts "TEST"
+      redirect_to "/"
+    end
+    @comment = Comment.new
+    @user = User.find_by(id: session[:user_id])
+    @game = Game.find_by(id: params[:game_id])
   end
 
   def create
-  current_comment = Comment.new(comment_params)
-    if current_comment.save && session[:user_id]
+    unless session[:user_id]
+      redirect_to "/"
+    end
+    @comment = Comment.new(comment_params)
+    @user = User.find_by(id: session[:user_id])
+    @game = Game.find_by(id: params[:game_id])
+
+    if @comment.save
       redirect_to "/"
     else
+      puts "ERRORS"
+      @comment.errors
       render "comments/new"
     end
   end
