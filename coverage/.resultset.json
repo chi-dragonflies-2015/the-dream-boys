@@ -73,13 +73,25 @@
         1,
         null,
         null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
         null,
         1,
-        null,
+        0,
+        0,
         null,
         null,
         1,
-        null,
+        1,
+        0,
         null,
         null
       ],
@@ -91,6 +103,9 @@
         null,
         1,
         0,
+        null,
+        null,
+        1,
         null,
         null,
         1,
@@ -159,6 +174,14 @@
         null,
         null
       ],
+      "/Users/apprentice/Desktop/the-dream-boys/app/models/tag.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
       "/Users/apprentice/Desktop/the-dream-boys/app/models/user.rb": [
         1,
         1,
@@ -182,6 +205,14 @@
         1,
         1,
         1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
         null,
         null,
         null,
@@ -222,6 +253,6 @@
         null
       ]
     },
-    "timestamp": 1436910559
+    "timestamp": 1436918623
   }
 }
