@@ -1,5 +1,5 @@
 
-game = Game.create!({title: "Rando12",
+game = Game.create!({title: "Rando1r2",
                   image_url: "http://placehold.it/200x100",
                   description: "The original naval game",
                   min_players: 2,
@@ -10,7 +10,7 @@ game = Game.create!({title: "Rando12",
 
 user = User.create!({first_name: "Bob",
                     last_name: "Burger",
-                    username: "bob2",
+                    username: "bob23",
                     password: "test",
                     bio: "I am a fat dude with a bad attitude.",
                     admin: false
@@ -60,9 +60,5 @@ user_d = User.create(username: "userD", first_name: "first", last_name: "last", 
 user_a.friendees << user_b
 user_b.friendees << user_c
 user_c.friendees << user_d
-
-user_b.games << bs
-user_b.games << mono
-user_b.games << risk
 
 

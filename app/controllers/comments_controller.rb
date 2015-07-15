@@ -6,17 +6,21 @@ class CommentsController < ApplicationController
 
   def new
     unless session[:user_id]
-      puts "TEST"
       redirect_to "/"
+      return ### Added this return inresponse to the following AbstractController::DoubleRenderError
+             ### Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting,
+             ### you need to do something like "redirect_to(...) and return".
     end
     @comment = Comment.new
     @user = User.find_by(id: session[:user_id])
     @game = Game.find_by(id: params[:game_id])
+    render "comments/_new"
   end
 
   def create
     unless session[:user_id]
       redirect_to "/"
+      return ### SEE ABOVE
     end
     @comment = Comment.new(comment_params)
     @user = User.find_by(id: session[:user_id])
