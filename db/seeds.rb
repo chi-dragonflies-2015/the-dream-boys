@@ -6,3 +6,11 @@ game = Game.create({title: "Battleship",
                   min_age: 10,
                   min_time: 10,
                   max_time: 25} )
+
+user = User.create({username: 'temp',
+                first_name: 'Bill',
+                last_name: 'Cat',
+                password_digest: 'password',
+                bio: "Aaack"})
+
+

@@ -2,6 +2,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    @user = User.find_by(params[:user_id])
   end
 
   def new

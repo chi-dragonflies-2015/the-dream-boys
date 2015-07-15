@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'comments/:comment_id/vote/:vote_value' => 'vote#create_vote_for_comment'
 
 
-  resources :users
+  resources :users do
+    resources :games
+  end
   resources :sessions, only: [:new, :create, :destroy]
 end
