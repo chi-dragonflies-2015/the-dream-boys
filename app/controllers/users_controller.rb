@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    puts "*** #{user_path(@user)}"
+    puts "*** #{@user.games}"
   end
 
   def new
