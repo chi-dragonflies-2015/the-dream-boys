@@ -1,5 +1,6 @@
 
-game = Game.create!({title: "Rando12",
+
+bs = Game.create!({title: "Battleship",
                   image_url: "http://placehold.it/200x100",
                   description: "The original naval game",
                   min_players: 2,
@@ -8,9 +9,10 @@ game = Game.create!({title: "Rando12",
                   min_time: 10,
                   max_time: 25} )
 
+
 user = User.create!({first_name: "Bob",
                     last_name: "Burger",
-                    username: "bob2",
+                    username: "bob23",
                     password: "test",
                     bio: "I am a fat dude with a bad attitude.",
                     admin: false
@@ -23,16 +25,18 @@ user = User.create!({first_name: "Bob",
  #      t.string :bio
  #      t.boolean :admin, default: false
 
-game.comments.create!(content: "Test content1", commenter_id: user.id)
-game.comments.create!(content: "Test content2", commenter_id: user.id)
-game.comments.create!(content: "Test content3", commenter_id: user.id)
-game.comments.create!(content: "Test content4", commenter_id: user.id)
-game.comments.create!(content: "Test content5", commenter_id: user.id)
-game.comments.create!(content: "Test content6", commenter_id: user.id)
-game.comments.create!(content: "Test content7", commenter_id: user.id)
-game.comments.create!(content: "Test content8", commenter_id: user.id)
-game.comments.create!(content: "Test content9", commenter_id: user.id)
-ten = game.comments.create!(content: "Test content10", commenter_id: user.id)
+
+bs.comments.create!(content: "Test content1", commenter_id: user.id)
+bs.comments.create!(content: "Test content2", commenter_id: user.id)
+bs.comments.create!(content: "Test content3", commenter_id: user.id)
+bs.comments.create!(content: "Test content4", commenter_id: user.id)
+bs.comments.create!(content: "Test content5", commenter_id: user.id)
+bs.comments.create!(content: "Test content6", commenter_id: user.id)
+bs.comments.create!(content: "Test content7", commenter_id: user.id)
+bs.comments.create!(content: "Test content8", commenter_id: user.id)
+bs.comments.create!(content: "Test content9", commenter_id: user.id)
+ten = bs.comments.create!(content: "Test content10", commenter_id: user.id)
+
 
 mono = Game.create({title: "Monopoly",
                   image_url: "http://placehold.it/200x100",
@@ -63,6 +67,12 @@ user_c.friendees << user_d
 
 up = Vote.create!(value: 1, voter_id: user_b)
 down = Vote.create!(value: -1, voter_id: user_d)
+
+user_b.games << bs
+
+user_b.games << mono
+user_b.games << risk
+
 
 shooter = Tag.create!(description: "Shootem Up")
 strategy = Tag.create!(description: "Strategic")
