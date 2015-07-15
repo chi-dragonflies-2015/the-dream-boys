@@ -1,9 +1,11 @@
 class GamesController < ApplicationController
 
+
   def index
+    session[:user_id] = 1
     @games = Game.all
-    @user = User.find(1)
-    # @comments = @games.comments.all
+    @user = User.find(session[:user_id])
+    @comments = Comment.all
   end
 
   def new
@@ -11,10 +13,10 @@ class GamesController < ApplicationController
   end
 
   def add_to_library
-    @user = User.find(1)
-    @game = Game.find_by(params[:id])
-    Ownership.create(owner_id: @user.id, game_id: @game.id)
-    redirect_to index
+    @user = User.find(session[:user_id])
+    @game = Game.find(params[:game_id])
+    @user.games << @game
+    redirect_to @user
   end
 
   def create

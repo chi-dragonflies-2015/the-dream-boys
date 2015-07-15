@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :games
   root "games#index"
 
   post "/users/:user_id/games" => 'games#add_to_library', as: "user_add_game"

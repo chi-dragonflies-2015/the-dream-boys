@@ -1,5 +1,5 @@
 
-game = Game.create!({title: "Rando121",
+game = Game.create!({title: "Battleship",
                   image_url: "http://placehold.it/200x100",
                   description: "The original naval game",
                   min_players: 2,
