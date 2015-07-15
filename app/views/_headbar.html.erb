@@ -9,11 +9,11 @@
 
     <form action="/users/<%= current_user.id %>/games/search" method="post">
       <%#= csrf_meta_tags %>
-      <input type="hidden" name="authenticity_token" value="">
+      <input id="game_search" type="hidden" name="authenticity_token">
       <input type="text" placeholder="Search for a game" name="search_term">
     </form>
     <form action="/users/search" method="post">
-      <input type="hidden" name="authenticity_token" value="">
+      <input id="user_search" type="hidden" name="authenticity_token">
       <input type="text" placeholder="Search for a user" name="search_term">
     </form>
 

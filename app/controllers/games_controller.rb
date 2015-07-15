@@ -20,6 +20,11 @@ class GamesController < ApplicationController
     redirect_to @user
   end
 
+  def search
+    @games = search_games(params[:search_term])
+    render "games/index"
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save

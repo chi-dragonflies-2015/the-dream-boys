@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def search
-    puts "*********** #{params[:search_term]}"
     @users = search_users(params[:search_term])
     render "users/index"
   end
