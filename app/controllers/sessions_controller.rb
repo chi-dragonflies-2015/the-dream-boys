@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    puts UsersHelper::search_users("er").inspect
+    # puts UsersHelper::search_users("er").inspect
   end
 
   def create

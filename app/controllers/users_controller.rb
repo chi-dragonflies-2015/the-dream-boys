@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
-    if session[:user_id] && User.find_by(id: session[:user_id])
-      @current_user = User.find_by(id: session[:user_id])
+    if current_user
       @users = User.all.reject{|user|user.username == @current_user.username}
     else
       @users = User.all
