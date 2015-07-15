@@ -20,8 +20,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    if @game.save?
-
+    if @game.save
       redirect_to @game
     else
       render 'new'
@@ -54,7 +53,7 @@ class GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:title, :image_url, :description, :min_players,
-                                    :max_players, :min_age, :min_time, :ma)
+                                    :max_players, :min_age, :min_time, :max_time)
     end
 
 
