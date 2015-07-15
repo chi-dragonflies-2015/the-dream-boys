@@ -15,6 +15,12 @@ class UsersController < ApplicationController
   def new
   end
 
+  def add_to_friends
+  end
+
+  def remove_from_friends
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

@@ -22,6 +22,11 @@
     <p>
       <img src="<%= friend.image %>"><%= link_to friend.username, user_path(friend) %>
     </p>
+    <p><%= friend.username %> </p>
+    <%= button_to "Add to my friends", user_add_friend_path({user_id: @user.id}) %>
+     <%= button_to "Remove from my friends", user_remove_friend_path({user_id: @user.id}) %>
+
   <% end %>
+
 </p>
 

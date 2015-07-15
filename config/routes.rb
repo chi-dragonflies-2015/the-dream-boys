@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   post "/users/:user_id/games" => 'games#add_to_library', as: "user_add_game"
 
+  post "/users/:user_id/friends" => 'users#add_to_friends', as: "user_add_friend"
+  delete "/users/:user_id/friends" => 'users#remove_from_friends', as: "user_remove_friend"
+
 
   resources :games do
     resources :comments
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :comments
+  end
+
+  resources :users do
   end
 
   resources :users do
