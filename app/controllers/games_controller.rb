@@ -9,6 +9,13 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def add_to_library
+    @user = User.find(1)
+    @game = Game.find_by(params[:id])
+    @user.games << @game
+    redirect_to "/index"
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save?

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   resources :games
-  root "home#index"
+  root "games#index"
 
+  post "/users/:user_id/games" => 'games#add_to_library', as: "user_add_game"
 
   resources :games do
     resources :comments
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    resources :games
+    resources :games, except: :create
   end
+
   resources :sessions, only: [:new, :create, :destroy]
 end
