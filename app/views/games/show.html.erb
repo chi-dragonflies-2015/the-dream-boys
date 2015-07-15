@@ -5,3 +5,6 @@
 <p>minimum age: <%= @game.min_age %></p>
 <p>round length: <%= @game.min_time %> to <%=@game.max_time %> minutes</p>
 
+<% @comments = @game.comments.all %>
+<%= render "comments/comments", collection: @comments  %>
+

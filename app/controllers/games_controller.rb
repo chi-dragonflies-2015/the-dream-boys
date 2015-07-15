@@ -5,6 +5,7 @@ class GamesController < ApplicationController
     @games = Game.all
     @user = User.find_by(id: session[:user_id])
     @comments = Comment.all
+
   end
 
   def new
@@ -21,7 +22,6 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save?
-
       redirect_to @game
     else
       render 'new'
