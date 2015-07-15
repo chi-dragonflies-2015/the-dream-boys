@@ -66,7 +66,22 @@ describe User do
       @user_b.friendees << @user_c
       expect(@user_b.friends.map{|f| f.username}).to eq(["userA", "userC"])
     end
+  end
 
+  describe "image method" do
+
+    before (:each) do
+      @user = User.new(username: "pmac", first_name: "Pete", last_name: "Mac", password: "password", bio: "whatever")
+    end
+
+    it "uses the default image if none is provided" do
+      expect(@user.image).to eq("default pic url")
+    end
+
+    it "uses the provided image if there is one" do
+      @user.image_url = "new image url"
+      expect(@user.image).to eq("new image url")
+    end
   end
 
 end
