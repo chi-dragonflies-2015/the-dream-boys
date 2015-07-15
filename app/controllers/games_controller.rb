@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
 
+
   def index
     @games = Game.all
+    @user = User.find_by(id: session[:user_id])
+    @comments = Comment.all
 
   end
 
@@ -9,10 +12,16 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def add_to_library
+    @user = User.find(session[:user_id])
+    @game = Game.find(params[:game_id])
+    @user.games << @game
+    redirect_to @user
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save?
-
       redirect_to @game
     else
       render 'new'
