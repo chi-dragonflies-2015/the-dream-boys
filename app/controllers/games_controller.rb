@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @games = Game.allgit
     @user = User.find_by(params[:user_id])
+    @comments = @game.comments.all
   end
 
   def new

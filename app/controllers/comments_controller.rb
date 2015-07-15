@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index
-
+    redirect_to "/"
   end
 
   def new
@@ -9,11 +9,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-
+  current_comment = Comment.new(comment_params)
+    if current_comment.save && session[:user_id]
+      redirect_to "/"
+    else
+      render "comments/new"
+    end
   end
 
   def show #probably not going to get used
-
+    redirect_to "/"
   end
  ############ STRETCH GOAL ###############
   def edit
@@ -25,14 +30,11 @@ class CommentsController < ApplicationController
   def destroy
   end
  ########################################
+
+ private
+ def comment_params
+    params.require(:comment).permit(:game_id, :content, :commenter_id)
+ end
 end
 
 
-#  game_comments GET    /games/:game_id/comments(.:format)          comments#index
-#                   POST   /games/:game_id/comments(.:format)          comments#create
-#  new_game_comment GET    /games/:game_id/comments/new(.:format)      comments#new
-# edit_game_comment GET    /games/:game_id/comments/:id/edit(.:format) comments#edit
-#      game_comment GET    /games/:game_id/comments/:id(.:format)      comments#show
-#                   PATCH  /games/:game_id/comments/:id(.:format)      comments#update
-#                   PUT    /games/:game_id/comments/:id(.:format)      comments#update
-#                   DELETE /games/:game_id/comments/:id(.:format)      comments#destroy

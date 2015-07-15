@@ -13,13 +13,20 @@ class User < ActiveRecord::Base
   validates :username, {presence: true, uniqueness: true}
   validates :first_name, presence: true
   validates :last_name, presence: true
-  # validates :bio, presence: true
 
   def friends
     output = []
     output.concat(frienders)
     output.concat(friendees)
     output
+  end
+
+  def image
+    if self.image_url
+      self.image_url
+    else
+      "default pic url"
+    end
   end
 
 
