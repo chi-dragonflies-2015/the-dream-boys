@@ -11,12 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @user = User.find(session[:user_id])
-    puts "*** #{@user.games}"
-=======
-    @user = User.find_by(id: params[:id])
->>>>>>> master
   end
 
   def new

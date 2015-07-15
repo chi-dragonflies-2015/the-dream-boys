@@ -1,0 +1,18 @@
+<h1> Create a New  </h1>
+
+<%= form_for @comment, url: game_comments_path do |f| %>
+<%= f.text_field :content %>
+<%= f.hidden_field :commenter_id, :value => @user.id %>
+<%= f.hidden_field :game_id, :value => @game.id %>
+<%= f.submit "Submit" %>
+<% end %>
+<p> @user.username </p>
+<% if @comment.errors.any? %>
+<ul>
+  <% @comment.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<!-- Would like to change this to ajaxed partial when  -->
