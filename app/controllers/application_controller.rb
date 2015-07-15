@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    title_matches.concat(tag_matches.uniq)
+    title_matches.concat(tag_matches).uniq
   end
   helper_method :current_user
 end
