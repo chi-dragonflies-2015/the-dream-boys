@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def friendships
-    self.frienderships.concat(self.friendeeships)
+    [].concat(self.frienderships).concat(self.friendeeships)
   end
 
   def name
