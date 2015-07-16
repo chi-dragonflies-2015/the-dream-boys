@@ -65,8 +65,10 @@ user_a.friendees << user_b
 user_b.friendees << user_c
 user_c.friendees << user_d
 
+
 up = Vote.create!(value: 1, voter_id: 1)#user_b.id)
 down = Vote.create!(value: -1, voter_id: 1)#user_d.id)
+
 
 user_b.games << bs
 
