@@ -78,4 +78,4 @@ View the log of CI reports [here](https://travis-ci.org/chi-dragonflies-2015/the
 The coveralls URL near the bottom of the report leads to coverage reports.
 
 ##Heroku
-[Check out The Dream Boys on Heroku](https://dashboard.heroku.com/apps/piscine-saucisson-6012/resources)
+[Check out The Dream Boys on Heroku](https://piscine-saucisson-6012.herokuapp.com/)
