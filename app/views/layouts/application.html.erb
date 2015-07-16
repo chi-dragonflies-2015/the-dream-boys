@@ -8,7 +8,32 @@
 </head>
 <body>
 
-<%= yield %>
 
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header"><%= link_to "Home", games_path, class: "navbar-brand" %></div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <% if current_user %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Your profile", user_path(current_user), id: "themes" %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Logout", session_path(current_user), method: "DELETE" %></li>
+        </ul>
+          <% else %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Login", new_session_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Create an account", new_user_path %></li>
+        </ul>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

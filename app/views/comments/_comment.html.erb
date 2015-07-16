@@ -1,9 +1,6 @@
 
-
-  <ul>
-    <li><%= comment.content %></li>
-    <li><%= comment.commenter.username %></li>
-  </ul>
-
-
+<div class="jumbotron">
+  <div id="comment-area"><%= comment.content %></div>
+</div>
+<div id="commenter" class="text-muted"> <%= comment.commenter.username %> </div>
 
