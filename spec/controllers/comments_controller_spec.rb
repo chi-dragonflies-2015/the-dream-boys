@@ -8,7 +8,7 @@ RSpec.describe CommentsController, :type => :controller do
     end
   end
 
-  describe 'GET new' do
+  pending 'GET new' do
     it "returns a 200 status code if logged in" do
       session[:user_id] = 1
       get :new, game_id: 1
@@ -16,7 +16,7 @@ RSpec.describe CommentsController, :type => :controller do
     end
   end
 
-    describe 'GET new' do
+    pending 'GET new' do
     it "returns a 302 status code if not logged in" do
       get :new, game_id: 1
       expect(response.status).to eq(302)
@@ -30,7 +30,7 @@ RSpec.describe CommentsController, :type => :controller do
     end
   end
 
-   describe 'POST create when logged in' do
+   pending 'POST create when logged in' do
     it "returns a 302 status code if logged in and user saves" do
       session[:user_id] = 1
       post :create, game_id: 1, :comment => {game_id: 1, commenter_id: 1, content: "Test"}

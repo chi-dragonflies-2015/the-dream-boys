@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
-    if session[:user_id] && User.find_by(id: session[:user_id])
-      @current_user = User.find_by(id: session[:user_id])
+    if current_user
       @users = User.all.reject{|user|user.username == @current_user.username}
     else
       @users = User.all
@@ -30,6 +29,10 @@ class UsersController < ApplicationController
       (friendship.friendee_id == @current_user.id && friendship.friender_id == @friend.id)
     end[0]
     @friendship_to_delete.destroy
+
+  def search
+    @users = search_users(params[:search_term])
+    render "users/index"
   end
 
   def create

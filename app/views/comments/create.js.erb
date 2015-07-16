@@ -1,0 +1,10 @@
+<% if @errors != nil %>
+$("#create-comment").html('<%=j render partial: "new", :locals => {comment: @comment, game: @game, user: @user}%>');
+<% else %>
+  $("#create-comment").empty();
+  $("#new-comment").show();
+  <!-- $("#comment-list").empty(); -->
+  <% @comments = @game.comments.all %>
+  $("#comment-list").empty().html('<%=j render partial: "comment", collection: @comments  %>')
+<% end %>
+
