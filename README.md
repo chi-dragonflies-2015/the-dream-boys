@@ -68,6 +68,7 @@ To add:
 
 ##Schema
 ![DreamsBoys Schema](dreamboys-schema.png)
+Edit: the users table now contains an additional field "bio".
 
 ##Resources
 [Example of good readme](https://github.com/devdame/DBC-final-project)

@@ -1,0 +1,36 @@
+<div id = "holder">
+  <div class = "game_arrows">
+    <a href = "/games/<%=@game.id%>/vote/1">
+      <div class='arrow-up'>
+      </div>
+    </a>
+
+
+    <div class="vote_count">
+      <p id = "vote_for_games"><%=Vote.total(@game) %></p>
+    </div>
+
+    <a href = "/games/<%=@game.id%>/vote/-1">
+      <div class='arrow-down'>
+      </div>
+    </a>
+  </div>
+
+  <img src= <%=@game.image_url %> >
+  <p><%= @game.title %></p>
+  <p><%= @game.description %></p>
+  <p>players: <%= @game.min_players %> to <%=@game.max_players %></p>
+  <p>minimum age: <%= @game.min_age %></p>
+  <p>round length: <%= @game.min_time %> to <%=@game.max_time %> minutes</p>
+
+
+
+<%= link_to 'New Comment', new_game_comment_path(@game), id: 'new-comment', remote: true %>
+<!-- Setting remote:true prevents event default -->
+<div id = "create-comment"> </div>
+<div id="comment-list">
+<% @comment = @game.comments.all %>
+<%= render partial: "comments/comment", collection: @comment.order(:updated_at).reverse_order  %>
+
+
+</div>

@@ -1,0 +1,24 @@
+
+
+  <ul>
+    <div class = "comment_arrows">
+      <a href = "/comments/<%=comment.id%>/vote/1" class = "comment_up_arrow">
+        <div class='arrow-up'>
+        </div>
+      </a>
+
+      <div class="vote_count">
+        <p id = "vote_for_comments"><%=Vote.total(comment) %></p>
+      </div>
+
+      <a href = "/comments/<%=comment.id%>/vote/-1" class = "comment_down_arrow">
+        <div class='arrow-down'>
+        </div>
+      </a>
+    </div>
+    <li><%= comment.content %></li>
+    <li><%= comment.commenter.username %></li>
+  </ul>
+
+
+
