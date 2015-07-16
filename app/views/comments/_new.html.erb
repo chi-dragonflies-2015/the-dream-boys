@@ -1,14 +1,18 @@
 <h1> Create a comment </h1>
-
-<%= form_for @comment, url: game_comments_path, remote: true do |f| %>
-<%= f.text_field :content %>
+<div class="well bs-component">
+<%= form_for @comment, url: game_comments_path, class: "form-horizontal", remote: true do |f| %>
+<div class="form-group">
+  <div class="col-lg-10">
+    <%= f.text_field :content, class: "form-control", id: "textArea" %>
+  </div>
+</div>
 <%= f.hidden_field :commenter_id, :value => @user.id %>
 <%= f.hidden_field :game_id, :value => @game.id %>
-<%= f.submit "Submit" %>
+<%= f.submit "Submit", id: "submit-comment" %>
 <% end %>
 <br />
 <% if @comment.errors.any? %>
   <%= @comment.errors.full_messages[0]%>
 <% end %>
-
+</div>
 
