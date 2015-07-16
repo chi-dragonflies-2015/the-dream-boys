@@ -8,10 +8,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if params[:user]
+      @user = User.find_by(id: user_params[:id])
+    elsif params[:id]
+      @user = User.find_by(id: params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def new
+  end
+
+  def update
+    @user = User.find_by(id: session[:user_id])
+    if @user.update(user_params)
+      redirect_to user_path(current_user, user: {id: @user.id})
+    else
+      @errors = @user.errors
+      render "users/edit"
+    end
+
   end
 
   def add_to_friends
@@ -52,6 +69,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :bio, :password)
+    params.require(:user).permit(:username, :first_name, :last_name, :bio, :password, :id, :image_url)
   end
 end

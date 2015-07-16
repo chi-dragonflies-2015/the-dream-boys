@@ -10,7 +10,10 @@
   <h3>Here's a little bit about me</h3>
   <br><%= @user.bio%>
 </p>
-  <% if session[:user_id] != @user.id %>
+  <% if session[:user_id] == @user.id %>
+
+    <%= link_to "Edit my profile", edit_user_path(current_user) %>
+  <% elsif session[:user_id] != @user.id %>
     <%= button_to "Add to my friends", user_add_friend_path({user_id: session[:user_id], friend_id: @user.id}), class:  "btn btn-primary",  method: "POST"%>
   <% end %>
 <p>
