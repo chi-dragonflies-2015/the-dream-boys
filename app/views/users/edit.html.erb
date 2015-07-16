@@ -1,0 +1,31 @@
+<% if @errors %>
+There were the following errors in creating your account.
+
+  <% @errors.messages.each do |error, message| %>
+    <p>
+      <%= "#{error.to_s.capitalize} #{message[0]}" %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= form_for current_user, url: user_path(current_user), method: "PUT" do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label  :bio %>
+  <%= f.text_area  :bio %>
+
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url %>
+
+  <%= f.submit %>
+<% end %>
