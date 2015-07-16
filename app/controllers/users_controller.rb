@@ -20,10 +20,16 @@ class UsersController < ApplicationController
     @friend = User.find(params[:friend_id])
     @current_user.friendees << @friend
     redirect_to @current_user
-
   end
 
   def remove_from_friends
+    @current_user = User.find_by(id: session[:user_id])
+    @friend = User.find(params[:friend_id])
+    @friendship_to_delete = @current_user.friendships.select do |friendship|
+      (friendship.friender_id == @current_user.id && friendship.friendee_id == @friend.id) ||
+      (friendship.friendee_id == @current_user.id && friendship.friender_id == @friend.id)
+    end[0]
+    @friendship_to_delete.destroy
   end
 
   def create

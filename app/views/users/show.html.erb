@@ -28,7 +28,9 @@
     </p>
     <% if current_user.id == @user.id %>
       <p><%= friend.username %> </p>
-       <%= button_to "Remove from my friends", user_remove_friend_path({user_id: @user.id}) %>
+
+      <%= link_to "Remove from my friends", user_remove_friend_path({user_id: @user.id, friend_id: friend.id}), method: :delete, data: {} %>
+
     <% end %>
 
   <% end %>
