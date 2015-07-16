@@ -77,4 +77,5 @@ Edit: the users table now contains an additional field "bio".
 View the log of CI reports [here](https://travis-ci.org/chi-dragonflies-2015/the-dream-boys).
 The coveralls URL near the bottom of the report leads to coverage reports.
 
-##View Images
+##Heroku
+[Check out The Dream Boys on Heroku](https://piscine-saucisson-6012.herokuapp.com/)

@@ -5,6 +5,6 @@ $("#create-comment").html('<%=j render partial: "new", :locals => {comment: @com
   $("#new-comment").show();
   <!-- $("#comment-list").empty(); -->
   <% @comments = @game.comments.all %>
-  $("#comment-list").empty().html('<%=j render partial: "comment", collection: @comments  %>')
+  $("#comment-list").empty().html('<%=j render partial: "comment", collection: @comments.order(:updated_at).reverse_order  %>')
 <% end %>
 
