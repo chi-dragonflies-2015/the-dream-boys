@@ -19,12 +19,16 @@
   <%= f.label :min_time  %>
   <%= f.text_field :min_time %>
 
-  <%= f.label :max_time %>
-  <%= f.text_field :max_time %>
+   <%= f.label :max_time %>
+   <%= f.text_field :max_time %>
+
+   <%= f.label :tags %>
+   <%= f.text_field :tags, value: "" %>
 
   <%= f.submit "Submit" %>
 
 <% end %>
+
 
 <% if @game.errors.any? %>
   <ul>

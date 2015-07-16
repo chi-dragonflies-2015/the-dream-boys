@@ -26,7 +26,13 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
+
+    @tags = game_params["tags"].split(", ")
+    @game = Game.new(game_params_without_tags)
+    @tags.each do |tag|
+      this_tag = Tag.find_or_create_by(description: tag)
+      @game.tags << this_tag
+    end
     if @game.save
       redirect_to @game
     else
@@ -60,7 +66,11 @@ class GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:title, :image_url, :description, :min_players,
-                                    :max_players, :min_age, :min_time, :max_time)
+                                    :max_players, :min_age, :min_time, :max_time, :tags )
+    end
+
+    def game_params_without_tags
+      game_params.reject{|k,v| k == "tags"}
     end
 
 end
