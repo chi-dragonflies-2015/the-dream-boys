@@ -8,6 +8,9 @@
   "Here's a little bit about me"
   <br>bio bio bio bio
 </p>
+  <% if session[:user_id] != @user.id %>
+    <%= button_to "Add to my friends", user_add_friend_path({user_id: session[:user_id], friend_id: @user.id}), method: "POST" %>
+  <% end %>
 <p>
   "Here are some of my games"
   <% @user.games.each do |game| %>
@@ -21,7 +24,16 @@
   <% @user.friends.each do |friend| %>
     <p>
       <img src="<%= friend.image %>"><%= link_to friend.username, user_path(friend) %>
+      <%= friend.username %>
     </p>
+    <% if current_user.id == @user.id %>
+      <p><%= friend.username %> </p>
+
+      <%= link_to "Remove from my friends", user_remove_friend_path({user_id: @user.id, friend_id: friend.id}), method: :delete, data: {} %>
+
+    <% end %>
+
   <% end %>
+
 </p>
 

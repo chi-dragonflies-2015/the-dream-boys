@@ -14,6 +14,24 @@ class UsersController < ApplicationController
   def new
   end
 
+  def add_to_friends
+    @current_user = User.find_by(id: session[:user_id])
+    @friend = User.find(params[:friend_id])
+    @current_user.friendees << @friend
+    redirect_to @current_user
+  end
+
+  def remove_from_friends
+    @current_user = User.find_by(id: session[:user_id])
+    @friend = User.find(params[:friend_id])
+    @friendship_to_delete = @current_user.friendships.select do |friendship|
+      (friendship.friender.id == @current_user.id && friendship.friendee.id == @friend.id) ||
+      (friendship.friendee.id == @current_user.id && friendship.friender.id == @friend.id)
+    end[0]
+    @friendship_to_delete.destroy
+    redirect_to "/users/#{@current_user.id}"
+  end
+
   def search
     @users = search_users(params[:search_term])
     render "users/index"
