@@ -8,8 +8,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    puts "$$$$ #{params.inspect}"
-    @user = User.find_by(id: user_params[:id])
+    if params[:user]
+      @user = User.find_by(id: user_params[:id])
+    elsif params[:id]
+      @user = User.find_by(id: params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def new
