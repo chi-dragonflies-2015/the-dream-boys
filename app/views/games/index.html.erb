@@ -1,17 +1,17 @@
-<%= render partial: "/headbar" %>
+ <div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-8 col-md-7 col-sm-6">
+    <ul>
+      <% @games.each do |game| %>
 
-<ul>
-  <% @games.each do |game| %>
+        <li><%= link_to game.title, game_path(game) %> : <%= game.description %>  </li>
+          <% if current_user %>
+            <class="bs-component">
+            <%= button_to "Add to my library", user_add_game_path({user_id: @user.id, game_id: game.id}), method: "POST", class: "btn btn-primary btn-xs" %>
+             </class>
+          <% end %>
 
-    <li><%= link_to game.title, game_path(game) %> : <%= game.description %>  </li>
-        <ul>
-            <% game.comments.each do |comment| %>
-              <li><%= comment.content %></li>
-            <% end %>
-
-        </ul>
-      <% if current_user %>
-        <%= button_to "Add to my library", user_add_game_path({user_id: current_user.id, game_id: game.id}), method: "POST" %>
       <% end %>
-
-  <% end %>
+    </div>
+  </div>
+</div>

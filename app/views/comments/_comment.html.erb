@@ -1,7 +1,7 @@
 
+<div class="jumbotron">
 
-  <ul>
-    <div class = "comment_arrows">
+   <div class = "comment_arrows">
       <a href = "/comments/<%=comment.id%>/vote/1" class = "comment_up_arrow">
         <div class='arrow-up'>
         </div>
@@ -16,9 +16,9 @@
         </div>
       </a>
     </div>
-    <li><%= comment.content %></li>
-    <li><%= comment.commenter.username %></li>
-  </ul>
 
+  <div id="comment-area"><%= comment.content %></div>
+</div>
+<div id="commenter" class="text-muted"> <%= comment.commenter.username %> </div>
 
 

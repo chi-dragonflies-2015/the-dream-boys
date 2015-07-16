@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     if self.image_url
       self.image_url
     else
-      "default pic url"
+      "http://posting.inlander.com/images/icons/user_generic.gif"
     end
   end
 

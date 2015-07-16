@@ -1,23 +1,21 @@
 <%= render partial: "/headbar" %>
 
-
 <p>
   Are these the users you're looking for...?
 </p>
 <% @users.each do |user| %>
-  <p>
-    <%= user.image %><br>
-    <%= link_to user.username, user_path(user) %><br>
-    <%= user.name %><br>
-    <%= link_to user.username, user_path(user) %><br>
-<!--   this logic needs to be extracted to a helper method -->
-    <% if @current_user && user.friends.include?(@current_user) %>
-      <%= button_to "create", '/' %>
-      <%#= button_to "This person is no longer my friend", '/'#this needs a delete friendship route %>
-    <% else %>
-      <%= button_to "delete", '/' %>
-      <%#= button_to "Add this user as a friend", '/'#this needs a create friendship route %>
-    <% end %>
-
-  </p>
+  <% if !(current_user) || (current_user && current_user != user) %>
+    <p>
+      <img src="<%= user.image %>"><br>
+      <%= link_to user.username, user_path(user) %><br>
+      <%= user.name %><br>
+  <!--   this logic needs to be extracted to a helper method -->
+      <% if current_user && !current_user.friends.include?(user) %>
+        <%= button_to "Add to my friends", user_add_friend_path({user_id: session[:user_id], friend_id: user.id}), method: "POST" %>
+      <% elsif current_user %>
+<!--       style this link as a button -->
+        <%= link_to "Remove from my friends", user_remove_friend_path({user_id: current_user.id, friend_id: user.id}), method: :delete, data: {} %>
+      <% end %>
+    </p>
+  <% end %>
 <% end %>
