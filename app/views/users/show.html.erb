@@ -11,7 +11,8 @@
 </p>
   <% if session[:user_id] == @user.id %>
 
-    <%= link_to "Edit my profile", edit_user_path(current_user) %>
+    <%= link_to "Edit my profile", edit_user_path(current_user) %><br>
+    <%= link_to "Add a new game to the public library", new_game_path %>
   <% elsif session[:user_id] != @user.id %>
     <%= button_to "Add to my friends", user_add_friend_path({user_id: session[:user_id], friend_id: @user.id}), class:  "btn btn-primary",  method: "POST"%>
   <% end %>
