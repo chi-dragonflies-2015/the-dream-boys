@@ -1,7 +1,5 @@
 <div id = "holder">
- <div class="page-header" id="banner">
-  <div class="row">
-    <div class="col-lg-8 col-md-7 col-sm-6">
+  <div class="game-profile">
         <div class = "game_arrows">
           <a href = "/games/<%=@game.id%>/vote/1">
             <div class='arrow-up'>
@@ -24,12 +22,8 @@
       <p>players: <%= @game.min_players %> to <%=@game.max_players %></p>
       <p>minimum age: <%= @game.min_age %></p>
       <p>round length: <%= @game.min_time %> to <%=@game.max_time %> minutes</p>
-    </div>
+
   </div>
-</div>
-
-
-
 <%= link_to 'New Comment', new_game_comment_path(@game), id: 'new-comment', remote: true %>
 <!-- Setting remote:true prevents event default -->
 <div id = "create-comment"> </div>
