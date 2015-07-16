@@ -13,9 +13,7 @@ $(document).ready(function() {
 
   $("#holder").on('click', ".comment_up_arrow", function(event){
     event.preventDefault();
-    console.log("no")
     var that = ($(this).next())
-    var nextThat = that.first()
     var commenturl = ($(this).attr("href"));
     var request = $.ajax({
                           url: commenturl,
@@ -29,7 +27,6 @@ $(document).ready(function() {
   $("#holder").on('click', ".comment_down_arrow", function(event){
     event.preventDefault();
     var that = ($(this).prev())
-    var nextThat = that.first()
     var commenturl = ($(this).attr("href"));
     var request = $.ajax({
                           url: commenturl,
