@@ -28,21 +28,14 @@ $(document).ready(function() {
 
   $("#holder").on('click', ".comment_down_arrow", function(event){
     event.preventDefault();
-    console.log("bo");
     var that = ($(this).prev())
     var nextThat = that.first()
-    console.log($(this))
-    console.log(that)
-    console.log(nextThat)
     var commenturl = ($(this).attr("href"));
     var request = $.ajax({
                           url: commenturl,
                           method: "POST"
     });
     request.done(function(response){
-      console.log("Hey Courtnet")
-      console.log(response["votes"])
-      console.log(that)
       $(that.children(":first")).text(response["votes"])
     });
   });
