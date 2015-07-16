@@ -1,7 +1,7 @@
 
 
 bs = Game.create!({title: "Battleship",
-                  image_url: "http://placehold.it/200x100",
+                  image_url: "http://www.geeksofdoom.com/GoD/img/2012/05/2012-05-17-battleship_game.jpg",
                   description: "The original naval game",
                   min_players: 2,
                   max_players: 2,
@@ -15,6 +15,7 @@ user = User.create!({first_name: "Bob",
                     username: "bob23",
                     password: "test",
                     bio: "I am a fat dude with a bad attitude.",
+                    image_url: "http://blog.nuraypictures.com/wp-content/uploads/2013/09/BobBelcher1.jpg",
                     admin: false
                     })
 
@@ -39,7 +40,7 @@ ten = bs.comments.create!(content: "Test content10", commenter_id: user.id)
 
 
 mono = Game.create({title: "Monopoly",
-                  image_url: "http://placehold.it/200x100",
+                  image_url: "http://nordoniahillsbranch.akronlibrary.org/files/2013/01/monopolyman.jpg",
                   description: "Literally no one has ever finished this game",
                   min_players: 2,
                   max_players: 5,
@@ -47,8 +48,8 @@ mono = Game.create({title: "Monopoly",
                   min_time: 10000,
                   max_time: 25000} )
 
-risk = Game.create({title: "Riskno",
-                  image_url: "http://placehold.it/200x100",
+risk = Game.create({title: "Risk",
+                  image_url: "https://gamesweplayed.files.wordpress.com/2010/04/the-classic-risk-board-game.png",
                   description: "This one either",
                   min_players: 2,
                   max_players: 8,
