@@ -72,10 +72,11 @@ describe User do
 
     before (:each) do
       @user = User.new(username: "pmac", first_name: "Pete", last_name: "Mac", password: "password", bio: "whatever")
+      @default_image = @user.image
     end
 
     it "uses the default image if none is provided" do
-      expect(@user.image).to eq("default pic url")
+      expect(@user.image).to eq(@default_image)
     end
 
     it "uses the provided image if there is one" do
