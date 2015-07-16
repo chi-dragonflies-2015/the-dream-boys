@@ -27,6 +27,7 @@ class VotesController < ApplicationController
 
   def create_vote_for_comment
     if session[:user_id]
+      puts "HEYYYYYYYYYYYYYYYYYYy"
       this_user = User.find_by(id: session[:user_id])
       this_comment = Comment.find_by(id: params[:comment_id])
       if Vote.allowed_to_vote(this_user, this_comment)
