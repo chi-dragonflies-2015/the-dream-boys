@@ -1,22 +1,21 @@
 <%= render partial: "/headbar" %>
 
-<%= current_user.inspect %>
 <p>
   Are these the users you're looking for...?
 </p>
 <% @users.each do |user| %>
-  <% unless current_user == user %>
+  <% if !(current_user) || (current_user && current_user != user) %>
     <p>
       <img src="<%= user.image %>"><br>
       <%= link_to user.username, user_path(user) %><br>
       <%= user.name %><br>
   <!--   this logic needs to be extracted to a helper method -->
-      <% if current_user && current_user.friends.include?(current_user) %>
+      <% if current_user && current_user.friends.include?(user) %>
         <%= button_to "Add to my friends", user_add_friend_path({user_id: session[:user_id], friend_id: user.id}), method: "POST" %>
-      <% else %>
+      <% elsif current_user %>
+<!--       style this link as a button -->
         <%= link_to "Remove from my friends", user_remove_friend_path({user_id: current_user.id, friend_id: user.id}), method: :delete, data: {} %>
       <% end %>
-
     </p>
   <% end %>
 <% end %>
